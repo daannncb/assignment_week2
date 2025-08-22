@@ -36,3 +36,18 @@ const images = [
 //for each comment, replace pseudo code with actual code; find/work out/big brain this
 
 //TODO: Create image thumbnails
+// this task is the event handler for the thumbnail event(s)
+//TODO:          function createLargeImagesHandler(){}
+
+// delete the current image
+// 1) select large image container
+// 2) delete current image in large image container
+// 3) largeImageContainer.innerHTML = null OR ""
+
+// 4) create an image
+// 5) update the src and alt
+// 6) give them className to style appropriately
+// 7) append image to container
+
+// add this event handler to the thumbnail event (so the end of the thumbnail triggers the function to create the large image)
+// you call the createThumbnails function
