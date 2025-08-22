@@ -16,7 +16,19 @@ const images = [
 ];
 
 //TODO: create thumbnail images
+// function createThumbnails() {
+//select the DOM element (thumnail-container) to contain thumbnails "getElement"
+//   createThumbnails.;
+// this is repetetive, use A LOOP! --> using length (of the images array) as i for
+// inside the loop: need to:
+// Create image element in HTML
+// Update the src to match to array, to pull data from there
+// The clue here is parameters (? not sure)
+// append the created images to the thumbnail-container
+// give each image a className; for i =1 className = image1
+// give each image an eventListener -> event handler for this listener is the function you write to create large images
 
+// }
 //TODO: create large images
 
 //TODO: create buttons stored in a box that create the large images (and delete the previous large image)
