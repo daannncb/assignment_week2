@@ -8,14 +8,53 @@ console.log("hi world");
 //TOADD img1.src = "http://path/to/image";
 
 const images = [
-  { url: "url1", alt: "altText1" },
-  { url: "url2", alt: "altText2" },
-  { url: "url3", alt: "altText3" },
-  { url: "url4", alt: "altText4" },
-  { url: "url5", alt: "altText5" },
+  { src: "./assignment_week2_assets/image1.jpg", alt: "altText1" },
+  { src: "./assignment_week2_assets/image2.jpg", alt: "altText2" },
+  { src: "./assignment_week2_assets/image3.jpg", alt: "altText3" },
+  { src: "./assignment_week2_assets/image4.jpg", alt: "altText4" },
+  { src: "./assignment_week2_assets/image5.jpg", alt: "altText5" },
 ];
 
 //TODO: create thumbnail images
+//==================ATTEMPT 2===========================================
+//grab thumbnail container
+const imageThumbnail = document.querySelector("#thumbnail-container");
+//loop thumbnails into container
+for (let i = 0; i < images.length; i++) {
+  const thumb = document.createElement("img");
+  thumb.src = images[i].src;
+  thumb.alt = images[i].alt;
+  thumb.className = "thumbnail";
+  imageThumbnail.appendChild(thumb);
+}
+
+//==================ATTEMPT 1 BELOW=====================================
+
+// function generateThumbnails() {
+//   const imageThumbnail = document.createElement("img");
+//   document.imgSrc = images.src[0];
+// }
+
+// for (let i = 0; i < images.length; i++) {
+//   generateThumbnails((src = images[i]));
+// }
+
+// images.forEach(generateThumbnails);
+// generateThumbnails.addEventListenter("click", function (click) {
+//   console.log("click");
+// });
+
+// const thumbnailContainer = document.getElementById("thumbnail-container");
+
+// // generateThumbnails;
+
+// for (let i = 0; i < images.length; i++) {
+//   const imgBox = document.createElement("img");
+//   imgBox.imageContent = src = images[i];
+// }
+
+//========================================================================
+
 // function createThumbnails() {
 //select the DOM element (thumnail-container) to contain thumbnails "getElement"
 //   createThumbnails.;

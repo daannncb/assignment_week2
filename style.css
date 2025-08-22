@@ -5,6 +5,22 @@
 }
 body {
   background-color: peru;
+  display: grid;
+  grid-template-columns: 4 (1fr);
+  grid-template-rows: 4 (1fr);
+  column-gap: 5px;
+  row-gap: 5px;
 }
+.thumbnail-container {
+  display: grid;
+  box-sizing: border-box;
 
+  grid-column: 2;
+}
+.thumbnail {
+  box-sizing: border-box;
+  height: 80px;
+  width: 120px;
+  grid-column: 2;
+}
 /* TODO: grid spacing for thumbnail images to appear in the centre of the screen */
