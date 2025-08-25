@@ -1,16 +1,31 @@
 const images = [
-  { src: "./assignment_week2_assets/image1.jpg", alt: "altText1" },
-  { src: "./assignment_week2_assets/image2.jpg", alt: "altText2" },
-  { src: "./assignment_week2_assets/image3.jpg", alt: "altText3" },
-  { src: "./assignment_week2_assets/image4.jpg", alt: "altText4" },
-  { src: "./assignment_week2_assets/image5.jpg", alt: "altText5" },
+  {
+    src: "./assignment_week2_assets/image1.jpg",
+    alt: "An image of some moody clouds rolling over mossy cliffs.",
+  },
+  {
+    src: "./assignment_week2_assets/image2.jpg",
+    alt: "Durdle Door, a large natural stone arch on the Dorset coastline.",
+  },
+  {
+    src: "./assignment_week2_assets/image3.jpg",
+    alt: "A picturesque steep village street, with a thatch roof featuring prominently and steep, mossy cobbles.",
+  },
+  {
+    src: "./assignment_week2_assets/image4.jpg",
+    alt: "An image of a mountain lake in the Dolomites. There are blue mountain flowers blurred in the foreground, and white cliffs above the lea.",
+  },
+  {
+    src: "./assignment_week2_assets/image5.jpg",
+    alt: "A geometric image of some of the angled ceilings in the Sagrada Familia in Barcelona.",
+  },
 ];
 
 const imageThumbnail = document.querySelector("#thumbnail-container");
 
 for (let i = 0; i < images.length; i++) {
   const thumb = document.createElement("img");
-  thumb.src = images[i].src;
+  thumb.src = images[i].src; //formatting here was interesting. Chat GPT helped point out my syntax error: prev. was images.[i]src
   thumb.alt = images[i].alt;
   thumb.className = "thumbnail";
   const imageObj = images[i];
@@ -19,6 +34,7 @@ for (let i = 0; i < images.length; i++) {
   });
   imageThumbnail.appendChild(thumb);
 }
+//got stuck here for a long time, had to put the listener into the loop
 
 const largeImageContainer = document.querySelector("#fullres-container");
 
@@ -30,40 +46,25 @@ function generateLargeImage(images) {
   fullres.className = "fullres";
   largeImageContainer.appendChild(fullres);
 }
+//im not entirely certain, but I tried a few different things and landed on function generateLargeImage(images). Not having *images* in the brackets seems to make things collapse
 
-// thumb.addEventListener("click", () => generateLargeImage(images[i]));
+let currentIndex = 0; // start at first image
 
-// imageThumbnail.addEventListener("click", generateLargeImage());
+function showImage(index) {
+  currentIndex = index;
+  generateLargeImage(images[currentIndex]);
+}
 
-//TODO: create thumbnail images
-//==================ATTEMPT 2===========================================
-//grab thumbnail container
+// Left arrow
+document.getElementById("arrow-left").addEventListener("click", function () {
+  var newIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(newIndex);
+});
 
-//loop thumbnails into container
+//negative remainders possible, so added length to make positive when wrapping around. Could probably find a modulus thing but this is stretching the limits of my A level maths.
 
-//TODO: create large images
-
-//TODO: make thumbnails interactive (clickable) to create the large images (and delete the previous large image)
-
-//for each comment, replace pseudo code with actual code; find/work out/big brain this
-
-//TODO: Create image thumbnails
-// this task is the event handler for the thumbnail event(s)
-//TODO:          function createLargeImagesHandler(){}
-
-// const largeImageCreator = document.getElementById("#fullres-container");
-
-//    function createLargeImagesHandler() {}
-
-// delete the current image
-// 1) select large image container
-// 2) delete current image in large image container
-// 3) largeImageContainer.innerHTML = null OR ""
-
-// 4) create an image
-// 5) update the src and alt
-// 6) give them className to style appropriately
-// 7) append image to container
-
-// add this event handler to the thumbnail event (so the end of the thumbnail triggers the function to create the large image)
-// you call the createThumbnails function
+// Right arrow
+document.getElementById("arrow-right").addEventListener("click", function () {
+  var newIndex = (currentIndex + 1) % images.length;
+  showImage(newIndex);
+});
